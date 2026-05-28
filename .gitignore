@@ -1,0 +1,14 @@
+# Node
+frontend/node_modules/
+**/node_modules/
+package-lock.json
+npm-debug.log*
+
+# Python
+backend/venv/
+__pycache__/
+*.py[cod]
+
+# Editor
+.vscode/
+.DS_Store

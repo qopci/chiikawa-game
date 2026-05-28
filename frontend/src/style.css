@@ -1,0 +1,246 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #ffe8f3 0%, #fff7f0 40%, #fff0ea 100%);
+  color: #30282f;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, #fff4f1 0%, #ffe6de 100%);
+}
+
+button {
+  font: inherit;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.game-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+}
+
+.hero-panel,
+.footer-panel {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 149, 176, 0.35);
+  border-radius: 32px;
+  box-shadow: 0 24px 60px rgba(217, 162, 178, 0.18);
+  padding: 28px 32px;
+}
+
+.hero-panel {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  background: #ff7b9c;
+  border-radius: 999px;
+  padding: 10px 16px;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+}
+
+.emoji-strip {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+}
+
+.emoji-strip span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(255, 137, 168, 0.12);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  letter-spacing: -0.05em;
+}
+
+.hero-panel p,
+.footer-panel p {
+  margin: 10px 0 0;
+  color: #5a4b52;
+}
+
+.score-banner {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.score-banner span {
+  font-size: 0.92rem;
+  color: #8b6f7a;
+}
+
+.score-banner strong {
+  font-size: 2rem;
+  color: #3d242e;
+}
+
+.score-banner small {
+  color: #7a5e65;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.info-grid article {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 147, 172, 0.37);
+  padding: 20px;
+  border-radius: 24px;
+  text-align: left;
+}
+
+.info-grid span {
+  display: block;
+  font-size: 0.86rem;
+  color: #9e7c85;
+  margin-bottom: 8px;
+}
+
+.info-grid strong {
+  font-size: 1.8rem;
+  color: #2c1c23;
+}
+
+.game-area {
+  position: relative;
+}
+
+.arena {
+  position: relative;
+  min-height: 420px;
+  border-radius: 36px;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(255, 216, 227, 0.8));
+  border: 1px solid rgba(255, 137, 168, 0.35);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.target {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  background: linear-gradient(135deg, #fff, #ffd5e0);
+  color: #8f4454;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 18px 40px rgba(220, 113, 144, 0.25);
+}
+
+.target:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.start-card {
+  position: absolute;
+  inset: 24px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 32px;
+  text-align: center;
+  padding: 34px;
+  gap: 18px;
+}
+
+.start-card h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.start-card p {
+  color: #765a63;
+}
+
+.start-card button {
+  border: none;
+  border-radius: 999px;
+  background: #ff7b9c;
+  color: white;
+  padding: 14px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(255, 123, 156, 0.24);
+}
+
+.start-card button:hover {
+  background: #ff5d85;
+}
+
+.footer-panel code {
+  background: rgba(245, 215, 224, 0.8);
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: #8f4454;
+}
+
+@media (max-width: 900px) {
+  .hero-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .target {
+    width: 72px;
+    height: 72px;
+    font-size: 2.4rem;
+  }
+
+  .arena {
+    min-height: 360px;
+  }
+}
