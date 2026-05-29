@@ -1,5 +1,11 @@
 <script setup>
 import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue'
+import chiikawaImg from './assets/Chiikawa emoji.png'
+import usagiImg from './assets/usagi emoji.png'
+import hachiwareImg from './assets/Hachiware emoji.png'
+import kaniImg from './assets/Kani emoji.png'
+import momongaImg from './assets/momonga emoji.png'
+import rakkoImg from './assets/Rakko emoji.png'
 
 const playing = ref(false)
 const score = ref(0)
@@ -7,9 +13,9 @@ const timeLeft = ref(20)
 const hits = ref(0)
 const message = ref('Tap a Chiikawa to score!')
 const highscore = reactive({ score: 0, player: 'Chiikawa' })
-const target = reactive({ x: 50, y: 50, char: '🐰' })
-const characters = ['🐰', '🐼', '🐥', '🐱', '🦊', '🐻', '🫧', '🌸']
-const badgeChars = ['🐰', '🐼', '🐥', '🐱']
+const badgeChars = [chiikawaImg, usagiImg, hachiwareImg]
+const characterImages = [chiikawaImg, usagiImg, hachiwareImg, kaniImg, momongaImg, rakkoImg]
+const target = reactive({ x: 50, y: 50, src: chiikawaImg, label: 'Chiikawa' })
 let moveInterval = null
 let countdownInterval = null
 
@@ -20,9 +26,11 @@ const targetStyle = computed(() => ({
 }))
 
 function randomizeTarget() {
+  const index = Math.floor(Math.random() * characterImages.length)
   target.x = 10 + Math.random() * 80
   target.y = 15 + Math.random() * 70
-  target.char = characters[Math.floor(Math.random() * characters.length)]
+  target.src = characterImages[index]
+  target.label = `Chiikawa ${index + 1}`
 }
 
 async function loadHighscore() {
@@ -116,7 +124,7 @@ onBeforeUnmount(() => {
       <div>
         <span class="badge">Chiikawa Clicker</span>
         <div class="emoji-strip">
-          <span v-for="(icon, index) in badgeChars" :key="index">{{ icon }}</span>
+          <img v-for="(icon, index) in badgeChars" :key="index" :src="icon" alt="Badge icon" />
         </div>
         <h1>Tap the cute Chiikawa before time runs out</h1>
         <p>Vue + FastAPI full-stack game with a backend high score tracker.</p>
@@ -149,8 +157,8 @@ onBeforeUnmount(() => {
 
     <section class="game-area">
       <div class="arena">
-        <button type="button" class="target" :style="targetStyle" @click="hitTarget" :aria-label="`Chiikawa target ${target.char}`">
-          {{ target.char }}
+        <button type="button" class="target" :style="targetStyle" @click="hitTarget" :aria-label="`Chiikawa target ${target.label}`">
+          <img class="target-img" :src="target.src" :alt="target.label" />
         </button>
         <div class="start-card" v-if="!playing">
           <h2>Ready?</h2>
