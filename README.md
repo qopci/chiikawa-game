@@ -20,15 +20,8 @@ In this small game, the player taps moving Chiikawa characters as fast as possib
 Open a terminal and run:
 
 ```bash
-cd /c/Users/seonp/sdev378/chiikawa-game/backend
+cd backend
 ./venv/Scripts/python main.py
-```
-
-> If you are using PowerShell or CMD, use:
->
-```powershell
-cd C:\Users\seonp\sdev378\chiikawa-game\backend
-venv\Scripts\python main.py
 ```
 
 The backend will start on `http://127.0.0.1:8000`.
@@ -38,7 +31,7 @@ The backend will start on `http://127.0.0.1:8000`.
 In a second terminal, run:
 
 ```bash
-cd /c/Users/seonp/sdev378/chiikawa-game/frontend
+cd frontend
 npm run dev
 ```
 

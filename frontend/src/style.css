@@ -70,18 +70,24 @@ button {
   display: flex;
   gap: 10px;
   margin-bottom: 16px;
-  font-size: 1.6rem;
 }
 
+.emoji-strip img,
 .emoji-strip span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 56px;
+  height: 56px;
+  font-size: 1.4rem;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 24px rgba(255, 137, 168, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 28px rgba(255, 137, 168, 0.16);
+}
+
+.emoji-strip img {
+  padding: 8px;
+  object-fit: contain;
 }
 
 h1 {
@@ -166,10 +172,18 @@ h1 {
   color: #8f4454;
   display: grid;
   place-items: center;
-  font-size: 3rem;
+  font-size: 2.8rem;
+  line-height: 1;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   box-shadow: 0 18px 40px rgba(220, 113, 144, 0.25);
+}
+
+.target-img {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  display: block;
 }
 
 .target:hover {
