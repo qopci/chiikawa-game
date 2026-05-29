@@ -1,21 +1,22 @@
-# Chiikawa Clicker
+# Chiikawa Clicker ✨
 
-A tiny full-stack Chiikawa-themed game built with Vue on the frontend and FastAPI on the backend.
+A tiny full-stack Chiikawa game with a cute Vue frontend and FastAPI backend. Tap the Chiikawa characters, chase the high score, and enjoy the pink bubble magic! .☘︎ ݁˖
 
-## Game Overview
+## 🌸 Game Overview
 
-In this small game, the player taps moving Chiikawa characters as fast as possible within 20 seconds. Each hit increases the score, and the backend tracks the high score using a simple JSON persistence file.
+Tap moving Chiikawa characters as fast as you can in 20 seconds. Every hit earns points, and the backend keeps the high score safe in a JSON file.
 
 ### Features
 
-- Vue 3 frontend with a simple clicker game UI
-- FastAPI backend with a high score API
-- Backend persistence in `backend/highscore.json`
-- Frontend proxy configured for `/api` requests to the backend
+- Vue 3 frontend with a playful clicker UI
+- FastAPI backend with a simple high score API
+- High score saved in `backend/highscore.json`
+- Frontend proxies `/api` requests to the backend for easy local play
+- Floating bubble animation and cute heart cursor
 
-## Run the app
+## 🚀 Quick Start
 
-### Backend
+### 1) Start the backend
 
 Open a terminal and run:
 
@@ -24,23 +25,26 @@ cd backend
 ./venv/Scripts/python main.py
 ```
 
-The backend will start on `http://127.0.0.1:8000`.
+Then visit `http://127.0.0.1:8000` if you want to verify the server is running.
 
-### Frontend
+### 2) Start the frontend
 
-In a second terminal, run:
+Open another terminal and run:
 
 ```bash
 cd frontend
+npm install
 npm run dev
 ```
 
-Then open the Vite URL shown in the terminal (usually `http://127.0.0.1:5173`).
+Open the Vite URL shown in the terminal (usually `http://127.0.0.1:5173`).
 
-## Backend API
+> If you are on Windows and using Git Bash, the backend command is still `./venv/Scripts/python main.py`.
+
+## 🧩 Backend API
 
 - `GET /api/highscore` — returns the current high score
-- `POST /api/highscore` — submit a new score payload:
+- `POST /api/highscore` — submit a new score like this:
 
 ```json
 {
@@ -49,13 +53,23 @@ Then open the Vite URL shown in the terminal (usually `http://127.0.0.1:5173`).
 }
 ```
 
-## Project structure
+## 📁 Project structure
 
-- `frontend/` — Vue application
-- `backend/` — FastAPI backend and virtual environment
-- `.gitignore` — ignores node_modules, venv, and other generated files
+- `frontend/` — Vue app and game UI
+- `backend/` — FastAPI server and local high score storage
+- `README.md` — this cute setup guide
 
-## Notes
+## 💡 Notes
 
-- Make sure the backend is running before starting the frontend so the game can load the high score and submit new scores.
-- The high score persists across runs in `backend/highscore.json`.
+- Start the backend first so the frontend can load and submit scores.
+- High scores are stored in `backend/highscore.json` and persist across runs.
+- Want to change the game? Add more Chiikawa images in `frontend/src/assets/`.
+
+## 💖 Play locally
+
+1. Run the backend
+2. Run the frontend
+3. Click the Chiikawa bubbles and try to beat the high score
+4. Enjoy the cute animation and pink vibes!
+
+Have fun! ݁˖✧
