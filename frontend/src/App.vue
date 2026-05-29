@@ -16,6 +16,7 @@ const highscore = reactive({ score: 0, player: 'Chiikawa' })
 const badgeChars = [chiikawaImg, usagiImg, hachiwareImg]
 const characterImages = [chiikawaImg, usagiImg, hachiwareImg, kaniImg, momongaImg, rakkoImg]
 const target = reactive({ x: 50, y: 50, src: chiikawaImg, label: 'Chiikawa' })
+const popped = ref(false)
 let moveInterval = null
 let countdownInterval = null
 
@@ -105,7 +106,11 @@ function hitTarget() {
   if (!playing.value) return
   score.value += 10
   hits.value += 1
+  popped.value = true
   message.value = ['So cute!', 'Nice hit!', 'Great job!', 'Chiikawa got clicked!'][Math.floor(Math.random() * 4)]
+  setTimeout(() => {
+    popped.value = false
+  }, 250)
   randomizeTarget()
 }
 
@@ -122,11 +127,11 @@ onBeforeUnmount(() => {
   <div class="game-shell">
     <header class="hero-panel">
       <div>
-        <span class="badge">Chiikawa Clicker</span>
+        <span class="badge">Chiikawa Clicker ୧ ‧₊˚ 🍮 ⋅ ☆</span>
         <div class="emoji-strip">
           <img v-for="(icon, index) in badgeChars" :key="index" :src="icon" alt="Badge icon" />
         </div>
-        <h1>Tap the cute Chiikawa before time runs out</h1>
+        <h1>Tap Chiikawa before time runs out! ^_^</h1>
         <p>Vue + FastAPI full-stack game with a backend high score tracker.</p>
       </div>
       <div class="score-banner">
@@ -157,7 +162,7 @@ onBeforeUnmount(() => {
 
     <section class="game-area">
       <div class="arena">
-        <button type="button" class="target" :style="targetStyle" @click="hitTarget" :aria-label="`Chiikawa target ${target.label}`">
+        <button type="button" class="target" :class="{ popped }" :style="targetStyle" @click="hitTarget" :aria-label="`Chiikawa target ${target.label}`">
           <img class="target-img" :src="target.src" :alt="target.label" />
         </button>
         <div class="start-card" v-if="!playing">
